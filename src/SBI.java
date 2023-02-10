@@ -65,7 +65,8 @@ public class SBI implements bankInteface{
     @Override
     public String withdraw(int amount, String password) {
         if (password.equals(this.password)) {
-            if (balance< 0) {
+            int val=balance-amount;
+            if (balance< 0||val<0) {
                 return "Insufficient amount";
             } else {
                 this.balance -= amount;
